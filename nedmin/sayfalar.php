@@ -28,7 +28,7 @@ include 'sidebar.php';
                 <!--    Hover Rows  -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Ekli olan SAyfalar
+                        Ekli olan Sayfalar
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
