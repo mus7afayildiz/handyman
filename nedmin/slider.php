@@ -69,7 +69,7 @@ include 'sidebar.php';
                                                 <a href="netting/islem.php?slider_sira= <?php echo $slidercek['slider_sira']; ?>&slider_sira_guncelle=ok">
                                                     <button type="submit" name="slide_sira_guncelle" class="btn btn-primary">Guncelle</button></a>
                                             </td>
-                                            <td><a href="netting/islem.php?slider_id= <?php echo $slidercek['slider_id']; ?>&slidersil=ok">
+                                            <td><a href="netting/islem.php?slider_id= <?php echo $slidercek['slider_id']; ?>&slidersil=ok&sliderresimsil=<?php echo $slidercek['slider_resimyol'];?>">
                                                     <button class="btn btn-danger">Sil</button></a></td>
                                         </tr>
 

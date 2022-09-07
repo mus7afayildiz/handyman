@@ -1,5 +1,6 @@
 <?php
 include 'netting/baglan.php';
+include 'function.php';
 putenv("TZ-Europe/Istanbul");
 
 if (!isset($_SESSION)) {
@@ -13,6 +14,8 @@ if (!isset($_SESSION['admin_kadi'])) {
 $tamirci = "SELECT * FROM ayarlar";
 $ayarsor = mysqli_query($baglan, $tamirci);
 $ayarcek = mysqli_fetch_array($ayarsor);
+
+giriskontrol();
 ?>
 
 

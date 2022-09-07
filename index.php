@@ -1,17 +1,20 @@
-<?php include 'header.php' ?>
+<?php 
+include 'header.php'; 
+include 'slider.php'; 
+?>
 
 <!--==============================aside================================-->
 <aside>
   <div class="wrapper">
 
     <?php
-    $sayfa = "SELECT * FROM sayfalar ORDER BY sayfa_id DESC LIMIT 3";
+    $sayfa = "SELECT * FROM sayfalar WHERE sayfa_anasayfa='1' ORDER BY sayfa_sira DESC";
     $sayfasor = mysqli_query($baglan, $sayfa);
     while ($sayfacek = mysqli_fetch_array($sayfasor)) { ?>
 
 
 
-      <div style="padding-left:13px;" class="column-2">
+      <div style="padding-left:13px; padding-top:10px;"  class="column-2">
         <div class="box">
           <div class="aligncenter">
             <h4> <?php echo $sayfacek['sayfa_ad']; ?></h4>

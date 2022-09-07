@@ -49,13 +49,13 @@ $menusor = mysqli_query($baglan, $menu);
         <div class="indent">
           <div class="row-top">
             <div class="wrapper">
-              <h1><a href="index.html">Handyman</a></h1>
+              <h1><a href="index.php">Handyman</a></h1>
               <strong class="support"><?php echo $ayarcek['ayar_telefon'] ?></strong>
             </div>
           </div>
           <nav>
             <ul class="menu">
-              <li><a class="active" href="index.html">Home</a></li>
+              <li><a class="active" href="index.php">Home</a></li>
 
 
               <?php
@@ -94,24 +94,5 @@ $menusor = mysqli_query($baglan, $menu);
             </ul>
           </nav>
         </div>
-        <div class="wrapper">
-          <div class="slider">
-            <ul class="items">
-
-              <?php
-              $slider = "SELECT * FROM slider ORDER BY slider_sira DESC";
-              $slidersor = mysqli_query($baglan, $slider);
-
-              while ($slidercek = mysqli_fetch_array($slidersor)) {
-             ?>
-
-                <li><img src="nedmin/<?php echo $slidercek['slider_resimyol']; ?>" alt="<?php echo $slidercek['slider_ad']; ?>"></li>
-
-              <?php } ?>
-            </ul>
-          </div>
-          <a class="prev">prev</a> <a class="next">next</a>
-          <div class="banner1-bg"></div>
-          <div class="banner-1"></div>
-        </div>
+        
       </header>

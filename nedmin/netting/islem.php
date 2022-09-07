@@ -132,10 +132,12 @@ VALUES ('" . $refimgyol . "','" . $_POST['slider_url'] . "','" . $_POST['slider_
       //delete slide
       if ($_GET['slidersil'] == "ok") {
 
+
         $slidersil = $baglan->query("DELETE FROM slider WHERE slider_id='" . $_GET['slider_id'] . "'");
 
         if ($baglan->affected_rows) {
-
+          $resim_sil = $_GET['sliderresimsil'];
+          unlink("../$resim_sil");
           header('Location:../slider.php?durum=ok');
         } else {
 
@@ -194,9 +196,9 @@ VALUES ('" . $refimgyol . "','" . $_POST['slider_url'] . "','" . $_POST['slider_
         $sayfa_id = $_POST['sayfa_id'];
         $sayfaduzenle = $db->prepare("UPDATE sayfalar SET 
         sayfa_ad = '" . $_POST['sayfa_ad'] . "',
-        sayfa_icerik = '" . $_POST['sayfa_icerik']."',
-        sayfa_sira = '" . $_POST['sayfa_sira']."', 
-        sayfa_anasayfa = '" . $_POST['sayfa_anasayfa']."'  
+        sayfa_icerik = '" . $_POST['sayfa_icerik'] . "',
+        sayfa_sira = '" . $_POST['sayfa_sira'] . "', 
+        sayfa_anasayfa = '" . $_POST['sayfa_anasayfa'] . "'  
         WHERE sayfa_id='$sayfa_id'");
 
         $sayfaduzenle->execute();
