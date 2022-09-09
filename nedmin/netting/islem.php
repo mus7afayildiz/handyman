@@ -212,7 +212,44 @@ VALUES ('" . $refimgyol . "','" . $_POST['slider_url'] . "','" . $_POST['slider_
       }
 
 
+      //delete haber
+      if ($_GET['habersil'] == "ok") {
+        echo "cok yoruldum";
+        $habersil = $baglan->query("DELETE FROM haber WHERE haber_id='" . $_GET['haber_id'] . "'");
+
+        if ($baglan->affected_rows) {
+
+          header('Location:../haberler.php?durum=ok');
+        } else {
+          header('Location:../haberler.php?durum=no');
+        }
+      }
 
 
+
+      //add slide
+      if (isset($_POST['haberekle'])) {
+
+        $uploads_dir = '../uploads/haberler';
+        @$tmp_name = $_FILES['haber_resimyol']["tmp_name"];
+        @$name = $_FILES['haber_resimyol']["name"];
+        $benzersizsayi1 = rand(20000, 32000);
+        $benzersizsayi2 = rand(20000, 32000);
+        $benzersizsayi3 = rand(20000, 32000);
+        $benzersizsayi4 = rand(20000, 32000);
+        $benzersizad = $benzersizsayi1 . $benzersizsayi2 . $benzersizsayi3 . $benzersizsayi4;
+        $refimgyol = substr($uploads_dir, 3) . "/" . $benzersizad . $name;
+        @move_uploaded_file($tmp_name, "$uploads_dir/$benzersizad$name");
+
+        $haber_zaman = Date('Y-m-d H:i');
+        $haberekle = $baglan->query("INSERT into haber (haber_resimyol,haber_ad,haber_detay,haber_zaman)
+VALUES ('" . $refimgyol . "','" . $_POST['haber_ad']  . "','" . $_POST['haber_detay'] . "','" . $haber_zaman . "')");
+
+        if ($baglan->affected_rows) {
+          header("Location:../haberler.php?durum=ok");
+        } else {
+          header("Location:../haberler.php?durum=no");
+        }
+      }
 
       ?>

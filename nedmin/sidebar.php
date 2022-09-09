@@ -39,6 +39,9 @@
                 <li>
                     <a href="sayfalar.php"><i class="fa fa-dashboard "></i>Sayfalar</a>
                 </li>
+                <li>
+                    <a href="haberler.php"><i class="fa fa-dashboard "></i>Haberler</a>
+                </li>
 
             </ul>
 
